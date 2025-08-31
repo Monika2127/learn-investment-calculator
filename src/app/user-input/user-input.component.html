@@ -1,25 +1,52 @@
-<form (ngSubmit)="onSubmit()">
-    <div class="input-group">
-        <p>
-            <label for="initial-investment">Initial Investment</label>
-            <input id="initial-investment" type="number">
-        </p>
-        
-        <p>
-            <label for="annual-investment">Annual Investment</label>
-            <input id="annual-investment" type="number">
-        </p>
-    </div>
-    <div class="input-group">
-        <p>
-            <label for="expected-return">Expected Return</label>
-            <input id="expected-return" type="number">
-        </p>
-        
-        <p>
-            <label for="duration">Duration</label>
-            <input id="duration" type="number">
-        </p>
-    </div>
-    <button>Calculate</button>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="input-group">
+    <p>
+      <label for="initial-investment">Initial Investment</label>
+      <input id="initial-investment" name="initial-investment" type="number" formControlName="enteredInitialInvestment">
+
+      @if (form.get('enteredInitialInvestment')?.touched && hasError(form.get('enteredInitialInvestment'))) {
+        <div class="error">
+          Please Enter more than 0
+        </div>
+      }
+    </p>
+
+
+    <p>
+      <label for="annual-investment">Annual Investment</label>
+      <input id="annual-investment" name="annual-investment" type="number" formControlName="enteredAnnualInvestment">
+
+      @if (form.get('enteredAnnualInvestment')?.touched && hasError(form.get('enteredAnnualInvestment'))) {
+        <div class="error">
+          Please Enter more than 0
+        </div>
+      }
+    </p>
+
+  </div>
+  <div class="input-group">
+    <p>
+      <label for="expected-return">Expected Return</label>
+      <input id="expected-return" name="expected-return" type="number" formControlName="enteredExpectedReturn">
+
+      @if (form.get('enteredExpectedReturn')?.touched && hasError(form.get('enteredExpectedReturn'))) {
+        <div class="error">
+          Please Enter more than 0
+        </div>
+      }
+
+    </p>
+
+    <p>
+      <label for="duration">Duration</label>
+      <input id="duration" name="duration" type="number" formControlName="enteredDuration">
+
+      @if (form.get('enteredDuration')?.touched && hasError(form.get('enteredDuration'))) {
+        <div class="error">
+          Please Enter more than 0
+        </div>
+      }
+    </p>
+  </div>
+  <button>Calculate</button>
 </form>

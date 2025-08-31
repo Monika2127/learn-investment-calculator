@@ -1,3 +1,5 @@
 <app-ms-header />
 
-<app-ms-user-input />
+<app-ms-user-input (annualData)="onGettingCalculatedData($event)" />
+
+<app-ms-investment-results [data]="annualData"/>
