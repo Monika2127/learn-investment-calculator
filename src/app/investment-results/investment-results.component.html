@@ -15,10 +15,10 @@
             @for (item of data; track item.year) {
                 <tr>
                     <td>{{ item.year }}</td>
-                    <td>{{ item.valueEndOfYear | currency }}</td>
-                    <td>{{ item.interest | currency }}</td>
-                    <td>{{ item.totalInterest | currency }}</td>
-                    <td>{{ item.totalAmountInvested | currency }}</td>
+                    <td>{{ item.valueEndOfYear | currency:"INR" }}</td>
+                    <td>{{ item.interest | currency:"INR" }}</td>
+                    <td>{{ item.totalInterest | currency:"INR" }}</td>
+                    <td>{{ item.totalAmountInvested | currency:"INR" }}</td>
                 </tr>
             }
         </tbody>

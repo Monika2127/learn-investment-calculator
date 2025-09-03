@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { AnnualData } from '../types/calculator.type';
 import { CurrencyPipe } from '@angular/common';
+import { CalculationService } from '../services/calculation.service';
 
 @Component({
   selector: 'app-ms-investment-results',
@@ -11,6 +12,9 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class InvestmentResultsComponent {
 
-  @Input({ required: true }) data!: AnnualData[];
+  private readonly calService = inject(CalculationService);
 
+  get data() {
+    return this.calService.annualData;
+  }
 }

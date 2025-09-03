@@ -1,7 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalculationService } from '../services/calculation.service';
-import { AnnualData, Calculator } from '../types/calculator.type';
+import { Calculator } from '../types/calculator.type';
 import { valueShouldBePositive } from '../validators/input.validator';
 
 @Component({
@@ -13,7 +13,6 @@ import { valueShouldBePositive } from '../validators/input.validator';
 })
 export class UserInputComponent implements OnInit {
 
-  @Output() annualData = new EventEmitter<AnnualData[]>();
   form!: FormGroup;
 
   constructor(
@@ -39,7 +38,7 @@ export class UserInputComponent implements OnInit {
         expectedReturn: formValue.enteredExpectedReturn,
         duration: formValue.enteredDuration
       }
-      this.annualData.emit(this.calService.calculateInvestmentResults(formValueToSend));
+      this.calService.calculateInvestmentResults(formValueToSend)
     }
   }
 

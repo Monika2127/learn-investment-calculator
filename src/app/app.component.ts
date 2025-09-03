@@ -12,14 +12,4 @@ import { AnnualData } from './types/calculator.type';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-
-  title = 'Investment Calculator';
-  annualData: AnnualData[] = [];
-
-  onGettingCalculatedData(data: AnnualData[]) {
-    console.log("data", data)
-    this.annualData = data;
-  }
-
-}
+export class AppComponent {}
